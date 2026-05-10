@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Командный список задач</title>
+    <title>My Little Pony Tasks</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>📋 Список задач команды</h1>
-
-        <!-- Форма для добавления задачи -->
+        <h1>My Little Pony todo</h1>
+        
         <div class="add-task-form">
             <input type="text" id="taskInput" placeholder="Введите новую задачу...">
-            <input type="text" id="assigneeInput" placeholder="Кто выполняет?">
-            <button id="addButton">Добавить</button>
+            <input type="text" id="assigneeInput" placeholder="Какая пони выполняет?">
+            <button id="addButton" class="image-button main-add-btn" title="Добавить задачу">
+                <img src="pony.jpg" alt="pony">
+                <span>Добавить задачу</span>
+            </button>
         </div>
 
-        <!-- Фильтры -->
         <div class="filters">
-            <button class="filter-btn active" data-filter="all">Все</button>
-            <button class="filter-btn" data-filter="active">Активные</button>
-            <button class="filter-btn" data-filter="completed">Выполненные</button>
+            <button class="filter-btn image-button active" data-filter="all">
+                <img src="pony5.jpg" alt="pony">
+                <span>Все</span>
+            </button>
+            <button class="filter-btn image-button" data-filter="active">
+                <img src="pony2.jpg" alt="pony">
+                <span>Активные</span>
+            </button>
+            <button class="filter-btn image-button" data-filter="completed">
+                <img src="pony4.jpg" alt="pony">
+                <span>Выполненные</span>
+            </button>
         </div>
 
-        <!-- Список задач -->
-        <ul id="taskList">
-            <!-- Задачи будут добавляться сюда через JavaScript -->
-        </ul>
+        <ul id="taskList"></ul>
 
-        <!-- Счётчик задач -->
         <div class="task-counter">
             <span id="taskCount">Задач: 0</span>
         </div>
