@@ -5,94 +5,121 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+    margin: 0;
     padding: 20px;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(rgba(77, 29, 149, 0.80), rgba(49, 10, 101, 0.90)), 
+                url('sad.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .container {
-    max-width: 650px;
+    width: 100%;
+    max-width: 700px;
     margin: 0 auto;
-    background: white;
-    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 25px;
     border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    height: auto;
+    min-height: min-content;
 }
 
 h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+    color: #b700ff;
+    margin-bottom: 20px;
 }
 
-/* Форма добавления задачи */
 .add-task-form {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .add-task-form input {
     flex: 1;
-    padding: 12px;
+    padding: 10px;
     border: 2px solid #ddd;
-    border-radius: 8px;
+    border-radius: 20px;
     font-size: 16px;
+    outline: none;
 }
 
-.add-task-form button {
-    padding: 12px 24px;
-    background: #667eea;
-    color: white;
+.image-button {
+    position: relative;
+    background: transparent;
     border: none;
-    border-radius: 8px;
+    padding: 0;
     cursor: pointer;
-    font-size: 16px;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.1s;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-add-btn {
+    min-width: 130px;
+}
+
+.image-button img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
     font-weight: bold;
+    font-size: 13px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 2;
 }
 
-.add-task-form button:hover {
-    background: #5568d3;
+.image-button:active {
+    transform: scale(0.95);
 }
 
-/* Фильтры */
 .filters {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 15px;
 }
 
 .filter-btn {
     flex: 1;
-    padding: 10px;
-    border: 2px solid #667eea;
-    background: white;
-    color: #667eea;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
 }
 
 .filter-btn.active {
-    background: #667eea;
-    color: white;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
-/* Список задач */
 #taskList {
     list-style: none;
-    margin-bottom: 20px;
 }
 
 .task-item {
     background: #f8f9fa;
-    padding: 15px;
-    margin-bottom: 10px;
+    padding: 12px;
+    margin-top: 10px;
     border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    border-left: 4px solid #667eea;
 }
 
 .task-item.completed {
@@ -104,8 +131,8 @@ h1 {
 }
 
 .task-checkbox {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     cursor: pointer;
 }
 
@@ -114,32 +141,29 @@ h1 {
 }
 
 .task-text {
-    font-size: 16px;
+    font-size: 15px;
     color: #333;
-    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .task-assignee {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
 }
 
 .delete-btn {
-    padding: 8px 16px;
+    padding: 6px 12px;
     background: #ff4757;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 12px;
 }
 
-.delete-btn:hover {
-    background: #ee5a6f;
-}
-
-/* Счётчик */
 .task-counter {
     text-align: center;
     color: #666;
     font-size: 14px;
+    padding-top: 15px;
 }
