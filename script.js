@@ -1,5 +1,7 @@
 // Массив для хранения задач
-let tasks = [];
+//let tasks = [];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
 let currentFilter = 'all';
 
 // Получаем элементы страницы
@@ -9,6 +11,11 @@ const addButton = document.getElementById('addButton');
 const taskList = document.getElementById('taskList');
 const taskCount = document.getElementById('taskCount');
 const filterButtons = document.querySelectorAll('.filter-btn');
+
+
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 
 // Функция добавления задачи
 function addTask() {
@@ -36,6 +43,8 @@ function addTask() {
     
     // Добавляем в массив
     tasks.push(task);
+    saveTasks(); // Сохраняем задачи в localStorage
+    
     
     // Очищаем поля ввода
     taskInput.value = '';
@@ -88,6 +97,7 @@ function toggleTask(id) {
     const task = tasks.find(t => t.id === id);
     if (task) {
         task.completed = !task.completed;
+        saveTasks(); // Сохраняем изменения в localStorage
         renderTasks();
     }
 }
@@ -96,6 +106,7 @@ function toggleTask(id) {
 function deleteTask(id) {
     if (confirm('Вы уверены, что хотите удалить эту задачу?')) {
         tasks = tasks.filter(t => t.id !== id);
+        saveTasks(); // Сохраняем изменения в localStorage
         renderTasks();
     }
 }
